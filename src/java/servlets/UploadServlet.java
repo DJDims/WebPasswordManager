@@ -69,7 +69,7 @@ public class UploadServlet extends HttpServlet {
                         .filter(part -> "file".equals(part.getName()))
                         .collect(Collectors.toList());
                 
-                String imagesFolder = "D:\\UploadDir\\WebPasswordManager\\";
+                String imagesFolder = "D:\\UploadDir\\jptv20_WebPasswordManager\\";
                 String imagesUserFolder = imagesFolder + authUser.getLogin();
                 for (Part filePart : fileParts) {
                     File dirForUserFiles = new File(imagesUserFolder);
@@ -136,7 +136,7 @@ public class UploadServlet extends HttpServlet {
             BufferedImage originalImage = ImageIO.read(icon);
             originalImage = Scalr.resize(originalImage, Scalr.Method.QUALITY, Scalr.Mode.FIT_TO_WIDTH, 400);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(originalImage, "jgp", baos);
+            ImageIO.write(originalImage, "jpg", baos);
             baos.flush();
             byte[] imageInByte = baos.toByteArray();
             baos.close();
